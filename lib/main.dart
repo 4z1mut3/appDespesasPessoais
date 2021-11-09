@@ -12,6 +12,9 @@ class ExpansesApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: MyHomePage(),
+      theme: ThemeData(
+        primarySwatch:Colors.green
+      ),
     );
   }
 }
@@ -47,6 +50,8 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _transactions.add(newTransaction);
     });
+
+    Navigator.of(context).pop();
   }
 
   _openTransactionFormModal(BuildContext context) {
@@ -62,10 +67,12 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         actions: <Widget>[
-          IconButton(icon: Icon(Icons.add), onPressed: ()=>_openTransactionFormModal(context) ),
+          IconButton(
+              icon: Icon(Icons.add),
+              onPressed: () => _openTransactionFormModal(context)),
         ],
         title: Text('Despesas Pessoais'),
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: Theme.of(context).primaryColor,
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -74,17 +81,18 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
               child: Card(
                   elevation: 5,
-                  color: Colors.deepPurple,
-                  child: Text('graficos')),
+                  color: Theme.of(context).primaryColor,
+                  child: Text('graficos')
+                  ),
             ),
             TransactionList(_transactions)
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(        
+      floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: ()=>_openTransactionFormModal(context),
-        
+        onPressed: () => _openTransactionFormModal(context),
+        backgroundColor: Theme.of(context).primaryColor,
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
