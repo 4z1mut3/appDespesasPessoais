@@ -15,7 +15,7 @@ class ExpansesApp extends StatelessWidget {
     return MaterialApp(
       home: MyHomePage(),
       theme: ThemeData(
-        primarySwatch: Colors.green,
+        primarySwatch: Colors.grey,
         accentColor: Colors.black,
         fontFamily: 'Quicksand',
         appBarTheme: AppBarTheme(
@@ -25,8 +25,14 @@ class ExpansesApp extends StatelessWidget {
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
-              ),
+                button: TextStyle(
+                  fontWeight:FontWeight.bold,
+                  color: Colors.black
+                )
+              ),              
+              
         ),
+        
       ),
     );
   }
@@ -52,6 +58,31 @@ class _MyHomePageState extends State<MyHomePage> {
       date: DateTime.now().subtract(Duration(days: 3)),
     ),
     Transaction(
+      id: 't2',
+      title: 'Conta de Luz',
+      value: 211.30,
+      date: DateTime.now().subtract(Duration(days: 4)),
+    ),Transaction(
+      id: 't2',
+      title: 'Conta de Luz',
+      value: 211.30,
+      date: DateTime.now().subtract(Duration(days: 4)),
+    ),Transaction(
+      id: 't2',
+      title: 'Conta de Luz',
+      value: 211.30,
+      date: DateTime.now().subtract(Duration(days: 4)),
+    ),Transaction(
+      id: 't2',
+      title: 'Conta de Luz',
+      value: 211.30,
+      date: DateTime.now().subtract(Duration(days: 4)),
+    ),Transaction(
+      id: 't2',
+      title: 'Conta de Luz',
+      value: 211.30,
+      date: DateTime.now().subtract(Duration(days: 4)),
+    ),Transaction(
       id: 't2',
       title: 'Conta de Luz',
       value: 211.30,
@@ -112,6 +143,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Icon(Icons.add),
         onPressed: () => _openTransactionFormModal(context),
         backgroundColor: Theme.of(context).primaryColor,
+        
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
