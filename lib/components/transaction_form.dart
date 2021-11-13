@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class TransactionForm extends StatefulWidget {
-  final void Function(String, double) onSubmit;
+  final void Function(String, double, DateTime) onSubmit;
 
   TransactionForm(this.onSubmit);
 
@@ -25,7 +25,7 @@ class _TransactionFormState extends State<TransactionForm> {
       return;
     }
 
-    widget.onSubmit(title, value);
+    widget.onSubmit(title, value, _selectedDate);
   }
 
   _showDatePicker() {
@@ -91,8 +91,8 @@ class _TransactionFormState extends State<TransactionForm> {
               children: [
                 RaisedButton(
                   child: Text('Nova Transação'),
-                  textColor: Colors.black,
-                  color: Theme.of(context).primaryColor,
+                  textColor: Colors.black,                  
+                  color: Colors.grey,
                   onPressed: _onSubmitForm,
                 ),
               ],
